@@ -29,11 +29,15 @@ public class NewTest {
 		driver.quit();
 	}
   @Test
-  public boolean f() {
-	  driver.findElement(By.xpath("//a[text()='Solutions']")).click();
-	  driver.findElement(By.xpath("(//a[text()='Culture'])[1]")).click();
-	  boolean val = driver.findElement(By.xpath("//a[contains(text(),'Start Your')]")).isDisplayed();
-	  Assert.assertTrue(val);
-	  return val;
+  public void f() {
+    driver.findElement(By.xpath("//a[text()='Solutions']")).click();
+    driver.findElement(By.xpath("(//a[text()='Culture'])[1]")).click();
+
+    boolean val = driver.findElement(
+        By.xpath("//a[contains(text(),'Start Your')]")
+    ).isDisplayed();
+
+    Assert.assertTrue(val);
+}
   }
 }
