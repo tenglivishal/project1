@@ -29,15 +29,27 @@ public class NewTest {
 		driver.quit();
 	}
   @Test
-  public void f() {
-    driver.findElement(By.xpath("//a[text()='Solutions']")).click();
-    driver.findElement(By.xpath("(//a[text()='Culture'])[1]")).click();
+  public void f() throws InterruptedException {
+	  Thread.sleep(Duration.ofSeconds(5));
+	   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    driver.findElement(By.xpath("//button[text()='Allow all']")).click();
+	    driver.findElement(By.xpath("//a[text()='Solutions']")).click();
+	    WebDriverWait wiat = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    Function<WebDriver,Boolean> f = new Function<WebDriver, Boolean>(){
 
-    boolean val = driver.findElement(
-        By.xpath("//a[contains(text(),'Start Your')]")
-    ).isDisplayed();
+			@Override
+			public Boolean apply(WebDriver t) {
+				// TODO Auto-generated method stub
+				return driver.findElement(By.xpath("(//a[text()='Culture'])[1]")).isDisplayed();
+			}
+	    };
+	    wiat.until(f);
+	    driver.findElement(By.xpath("(//a[text()='Culture'])[1]")).click();
+	    
+	    boolean val = driver.findElement(
+	        By.xpath("//a[contains(text(),'Start Your')]")
+	    ).isDisplayed();
 
-    Assert.assertTrue(val);
-}
-  
+	    Assert.assertTrue(val);
+  }  
 }
