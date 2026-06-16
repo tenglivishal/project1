@@ -1,11 +1,12 @@
 package com.SimpleProject;
 
-import static org.testng.Assert.assertTrue;
 import java.time.Duration;
 import java.util.function.Function;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -28,7 +29,8 @@ public class NewTest {
 	@AfterTest
 	public void afterTest() {
 		driver.quit();
-	}
+		}
+	
   @Test
   public void f() throws InterruptedException {
 	  Thread.sleep(Duration.ofSeconds(5));
@@ -52,5 +54,5 @@ public class NewTest {
 	    ).isDisplayed();
 
 	    Assert.assertTrue(val);
-  }  
+  }
 }
