@@ -39,5 +39,5 @@ public class NewTest {
 
     Assert.assertTrue(val);
 }
-  }
+  
 }
